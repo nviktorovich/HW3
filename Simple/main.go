@@ -5,13 +5,9 @@ import (
 	"os"
 )
 
-func isSimple(num int) bool  {
-	var cnt int
-	for i := 1; i < num; i++ {
+func isPrime(num int) bool  {
+	for i := 2; i < num / 2 + 1; i++ {
 		if num % i == 0 {
-			cnt++
-		}
-		if cnt > 1 {
 			return false
 		}
 	}
@@ -26,8 +22,8 @@ func main()  {
 		fmt.Println("Необходимо ввести целое положительное число число от 2 и более")
 		os.Exit(1)
 	}
-	for i := 1; i < userNum + 1; i++ {
-		if isSimple(i) {
+	for i := 2; i <= userNum; i++ {
+		if isPrime(i) {
 			fmt.Printf("Число %v является простым\n", i)
 		}
 	}
